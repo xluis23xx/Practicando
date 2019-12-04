@@ -80,7 +80,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es', //estaba antes en 'locale' => 'en', sirve
+    //para mostrar las validaciones en español
 
     /*
     |--------------------------------------------------------------------------

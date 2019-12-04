@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidacionMenu;
 use App\Models\Admin\Menu;
 
 class MenuController extends Controller
@@ -34,10 +35,11 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidacionMenu $request)
     {
         //dd($request->all());
         Menu::create($request->all());
+        return redirect('admin/menu/crear')->with('mensaje','Menú creado con éxito');
     }
 
     /**

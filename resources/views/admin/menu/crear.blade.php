@@ -6,6 +6,8 @@
 <div class="container-fluid" style="padding-top:15px">
     <div class="row">
         <div class="col-lg-12">
+            @include('includes.form-error')
+            @include('includes.mensaje')
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Crear menús</h3>
