@@ -16,9 +16,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
-
   @yield('styles')
+
+  <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
 </head>
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -47,7 +47,7 @@
     <script src="{{asset("assets/$theme/dist/js/adminlte.min.js")}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset("assets/$theme/dist/js/demo.js")}}"></script>
-
+    @yield('scriptsPlugin')
     @yield('scripts')
 </body>
 </html>
