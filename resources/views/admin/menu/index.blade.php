@@ -8,6 +8,9 @@
 @section("scriptsPlugins")
     <script src="{{asset("assets/js/jquery-nestable/jquery.nestable.js")}}" type="text/javascript"></script>
 @endsection
+@section('scripts')
+    <script src="{{asset("assets/pages/scripts/admin/menu/index.js")}}" type="text/javascript"></script>
+@endsection
 @section('contenido')
 <div class="container-fluid" style="padding-top:15px">
     <div class="row">

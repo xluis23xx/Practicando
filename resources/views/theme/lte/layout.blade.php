@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/adminlte.min.css")}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
   @yield('styles')
 
@@ -40,7 +41,9 @@
         <!--Fin Footer-->
     </div>
     <!-- jQuery -->
+    <script src="{{asset("assets/$theme/plugins/jquery/jquery.js")}}"></script>
     <script src="{{asset("assets/$theme/plugins/jquery/jquery.min.js")}}"></script>
+    <script src="{{asset("assets/$theme/plugins/bootstrap/js/bootstrap.min.js")}}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset("assets/$theme/plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
     <!-- AdminLTE App -->
