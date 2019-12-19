@@ -15,7 +15,7 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = Permiso::orderBy('id')->paginate(10);
+        $permisos = Permiso::orderBy('id')->paginate(5);
         return view('admin.permiso.index',compact('permisos'));
     }
 

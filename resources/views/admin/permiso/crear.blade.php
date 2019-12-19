@@ -3,18 +3,16 @@
     Permisos
 @endsection
 @section('contenido')
-<div class="container-fluid" style="padding-top:15px">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Crear Permisos</h3>
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Crear Permisos</h3>
                 </div>
-                <div class="card-body">
-                    
+                <div class="box-body">
+                    Aqui va formulario
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

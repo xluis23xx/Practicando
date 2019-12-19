@@ -3,14 +3,13 @@
     Permisos
 @endsection
 @section('contenido')
-<div class="container-fluid" style="padding-top:15px">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Permisos</h3>
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Permisos</h3>
                 </div>
-                <div class="card-body table-responsive p-0">
+                <div class="box-body table-responsive no-padding">
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                             <tr>
@@ -36,5 +35,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

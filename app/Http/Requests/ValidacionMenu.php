@@ -26,7 +26,7 @@ class ValidacionMenu extends FormRequest
     {  //para crear nuevas reglas php artisan make:rule nameRule
         return [
             'nombre' => 'required|max:50|unique:menu,nombre,' . $this->route('id'),
-            'url' => ['required','max:100',new ValidarCampoUrl], // estoy invocando un bojeto de la clase ValidarCampoUrl
+            'url' => ['required','max:100',new ValidarCampoUrl], // estoy invocando un objeto de la clase ValidarCampoUrl
             'icono' => 'nullable|max:50'
         ];
     }
