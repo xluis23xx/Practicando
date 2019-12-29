@@ -14,7 +14,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Crear menús</h3>
                 </div>
-                <form action="{{route('guardar_menu')}}" method="POST" id="form-general" class="form-horizontal">
+                <form action="{{route('guardar_menu')}}" method="POST" id="form-general" class="form-horizontal" autocomplete="off"
                     @csrf
                     <div class="box-body">
                         @include('admin.menu.form')
