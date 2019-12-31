@@ -16,6 +16,10 @@ class Menu extends Model
 
     protected $guarded = ['id'];
 
+    public function roles(){
+        return $this->belongsToMany(Rol::class, 'menu_rol');
+    }
+
     public $timestamps = false;
 
     public function getHijos($padres,$line){
