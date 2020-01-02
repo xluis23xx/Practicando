@@ -15,15 +15,21 @@
 //    return view('welcome');
 //});
 //Route::get('admin/sistema/permiso','PermisoController@index')->name('permiso');
-Route::get('/','InicioController@index');
-
-Route::group(['prefix'=>'admin','namespace'=>'Admin'], function () {
+Route::get('/','InicioController@index')->name('inicio');
+Route::get('seguridad/login','Seguridad\LoginController@index')->name('login');
+Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_post');
+Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
+Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => ['auth','superadmin']], function () {
+    Route::get('','AdminController@index');
     Route::get('permiso','PermisoController@index')->name('permiso');
     Route::get('permiso/crear','PermisoController@create')->name('crear_permiso');
     /*Rutas del menu*/
     Route::get('menu','MenuController@index')->name('menu');
     Route::get('menu/crear','MenuController@create')->name('crear_menu');
     Route::post('menu','MenuController@store')->name('guardar_menu');
+    Route::get('menu/{id}/editar','MenuController@edit')->name('editar_menu');
+    Route::put('menu/{id}','MenuController@update')->name('actualizar_menu');
+    Route::get('menu/{id}/eliminar','MenuController@destroy')->name('eliminar_menu');
     Route::post('menu/guardar-orden','MenuController@guardarOrden')->name('guardar_orden');
     /*Rutas del rol*/
     Route::get('rol','RolController@index')->name('rol');

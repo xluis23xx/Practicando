@@ -16,5 +16,9 @@ $(document).ready(function () {
         });
     });
 
+    $('.eliminar-menu').on('click', function(){
+        event.preventDefault();
+    })
+
     $('#nestable').nestable('expandAll');
 });
