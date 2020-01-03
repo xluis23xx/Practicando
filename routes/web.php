@@ -21,8 +21,20 @@ Route::post('seguridad/login','Seguridad\LoginController@login')->name('login_po
 Route::get('seguridad/logout','Seguridad\LoginController@logout')->name('logout');
 Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => ['auth','superadmin']], function () {
     Route::get('','AdminController@index');
+    /*Rutas de usuarios*/
+    Route::get('usuario','UsuarioController@index')->name('usuario');
+    Route::get('usuario/crear','UsuarioController@create')->name('crear_usuario');
+    Route::post('usuario','UsuarioController@store')->name('guardar_usuario');
+    Route::get('usuario/{id}/editar','UsuarioController@edit')->name('editar_usuario');
+    Route::put('usuario/{id}','UsuarioController@update')->name('actualizar_usuario');
+    Route::delete('usuario/{id}','UsuarioController@destroy')->name('eliminar_usuario');
+    /*Rutas de permiso*/
     Route::get('permiso','PermisoController@index')->name('permiso');
     Route::get('permiso/crear','PermisoController@create')->name('crear_permiso');
+    Route::post('permiso','PermisoController@store')->name('guardar_permiso');
+    Route::get('permiso/{id}/editar','PermisoController@edit')->name('editar_permiso');
+    Route::put('permiso/{id}','PermisoController@update')->name('actualizar_permiso');
+    Route::delete('permiso/{id}','PermisoController@destroy')->name('eliminar_permiso');
     /*Rutas del menu*/
     Route::get('menu','MenuController@index')->name('menu');
     Route::get('menu/crear','MenuController@create')->name('crear_menu');
@@ -41,4 +53,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => ['auth','s
     /*Rutas del menu-rol*/
     Route::get('menu-rol','MenuRolController@index')->name('menu_rol');
     Route::post('menu-rol','MenuRolController@store')->name('guardar_menu_rol');
+    /*Rutas del permiso_rol*/
+    Route::get('permiso-rol','PermisoRolController@index')->name('permiso_rol');
+    Route::post('permiso-rol','PermisoRolController@store')->name('guardar_permiso_rol');
+    /*Rutas del usuario-rol*/
+    Route::get('usuario-rol','UsuarioRolController@index')->name('usuario_rol');
+    Route::post('usuario-rol','UsuarioRolController@store')->name('guardar_usuario_rol');
 });

@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ValidarPermiso;
-use App\Models\Admin\Permiso;
 
-class PermisoController extends Controller
+class UsuarioRolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class PermisoController extends Controller
      */
     public function index()
     {
-        $permisos = Permiso::orderBy('id')->paginate(5);
-        return view('admin.permiso.index',compact('permisos'));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        return view('admin.permiso.crear');
+        //
     }
 
     /**
@@ -36,10 +33,9 @@ class PermisoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidarPermiso $request)
+    public function store(Request $request)
     {
-        Permiso::create($request->all());
-        return redirect('admin/permiso/crear')->with('mensaje','Permiso creado con éxito');
+        //
     }
 
     /**
@@ -61,8 +57,7 @@ class PermisoController extends Controller
      */
     public function edit($id)
     {
-        $data = Permiso::findOrFail($id);
-        return view('admin.permiso.editar', compact('data'));
+        //
     }
 
     /**
@@ -72,10 +67,9 @@ class PermisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ValidarPermiso $request, $id)
+    public function update(Request $request, $id)
     {
-        Permiso::findOrFail($id)->update($request->all());
-        return redirect('admin/permiso')->with('mensaje', 'Permiso actualizado con éxito');
+        //
     }
 
     /**
@@ -84,16 +78,8 @@ class PermisoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        if ($request->ajax()) {
-            if (Permiso::destroy($id)) {
-                return response()->json(['mensaje' => 'ok']);
-            } else {
-                return response()->json(['mensaje' => 'ng']);
-            }
-        } else {
-            abort(404);
-        }
+        //
     }
 }
