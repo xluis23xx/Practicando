@@ -4,7 +4,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset("assets/pages/scripts/admin/usuario/index.js")}}" type="text/javascript"></script>
+    <script src="{{asset("assets/pages/scripts/admin/index.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{$data->nombre}}</td>
                                 <td>{{$data->usuario}}</td>
-                                <td>Email</td>
+                                <td>{{$data->email}}</td>
                                 <td>
                                     <a href="{{route('editar_usuario',['id' => $data->id ])}}" class="btn-accion-tabla tooltipsC" title="Editar este registro">
                                         <i class="fa fa-fw fa-pencil"></i>

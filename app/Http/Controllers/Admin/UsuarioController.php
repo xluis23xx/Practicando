@@ -17,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $datas = Usuario::with('roles:id,nombre')->orderBy('id')->get();
+        $datas = Usuario::orderBy('id')->get();
         return view('admin.usuario.index',compact('datas'));
     }
 
@@ -40,8 +40,12 @@ class UsuarioController extends Controller
      */
     public function store(ValidacionUsuario $request)
     {
-        Usuario::create($request->all());
+        //dd($request->all());
+        $usuario = Usuario::create($request->all());
+        $usuario->roles()->attach($request->rol_id);
         return redirect('admin/usuario')->with('mensaje','Usuario creado con éxito');
+        //Usuario::create($request->all());
+        //return redirect('admin/usuario')->with('mensaje','Usuario creado con éxito');
     }
 
     /**
@@ -63,8 +67,11 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $data = Usuario::findOrFail($id);
-        return view('admin.usuario.editar',compact('data'));
+        //$data = Usuario::findOrFail($id);
+        //return view('admin.usuario.editar',compact('data'));
+        $rols = Rol::orderBy('id')->pluck('nombre', 'id')->toArray();
+        $data = Usuario::with('roles')->findOrFail($id);
+        return view('admin.usuario.editar',compact('data','rols'));
     }
 
     /**
@@ -74,9 +81,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidacionUsuario $request, $id)
     {
-        //
+        Usuario::findOrFail($id)->update($request->all());
+        return redirect('admin/usuario')->with('mensaje','Usuario actualizado con éxito');
     }
 
     /**
